@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sweet Cloud Restaurant</title>
+
+<style>
+
+/* GENERAL DESIGN */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+span {
+    color: #d4af37;
+}
+
+.gold-text {
+    color: #d4af37;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+/* NAVIGATION */
+
+header {
+    background: #080808;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d4af37;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+/* HOME SECTION */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+    background:
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 650px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background: #d4af37;
+    color: black;
+    padding: 13px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 35px;
+    margin: 10px 0 30px;
+}
+
+.welcome {
+    background: #111;
+}
+
+.welcome p:last-child {
+    max-width: 750px;
+    margin: auto;
+}
+
+/* MENU */
+
+.menu {
+    background: #080808;
+}
+
+.food-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.food-card {
+    background: #171717;
+    padding: 15px;
+    border: 1px solid #35302a;
+    transition: .4s;
+}
+
+.food-card:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+}
+
+.food-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.food-card h3 {
+    color: #d4af37;
+    margin: 15px 0 5px;
+}
+
+.food-card strong {
+    color: #d4af37;
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* SERVICES */
+
+.services {
+    background: #111;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: #1b1b1b;
+    padding: 30px 20px;
+    border-bottom: 3px solid #d4af37;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    background: #252017;
+}
+
+.service-card h3 {
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+    background: #0b0b0b;
+}
+
+.about img {
+    width: 50%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+/* MISSION AND VISION */
+
+.mission-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.mission-card {
+    background: #171717;
+    padding: 35px;
+    border: 1px solid #d4af37;
+}
+
+.mission-card h3 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+/* GALLERY */
+
+.gallery {
+    background: #111;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    background: #171717;
+    overflow: hidden;
+    border: 1px solid #333;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: .5s;
+    display: block;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item h3 {
+    color: #d4af37;
+    padding: 15px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: linear-gradient(120deg, #241d0b, #080808);
+}
+
+.contact h2 {
+    color: #d4af37;
+}
+
+.contact p {
+    margin: 10px 0;
+}
+
+/* FOOTER */
+
+footer {
+    background: #050505;
+    text-align: center;
+    padding: 35px 15px;
+    border-top: 1px solid #d4af37;
+}
+
+footer h3 {
+    font-size: 23px;
+    letter-spacing: 3px;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .food-container,
+    .service-container,
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about img {
+        width: 100%;
+    }
+
+    .mission-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 480px) {
+
+    .food-container,
+    .service-container,
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    section h2 {
+        font-size: 27px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <a href="#home" class="logo">
+        SWEET <span>CLOUD</span>
+    </a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="gold-text">WELCOME TO SWEET CLOUD</p>
+
+        <h1>
+            Where Every Bite
+            Feels Like <span>Heaven</span>
+        </h1>
+
+        <p>
+            Experience delicious food, beautiful moments,
+            and unforgettable dining with us.
+        </p>
+
+        <a href="#menu" class="btn">EXPLORE OUR MENU</a>
+
+    </div>
+
+</section>
+
+<!-- WELCOME -->
+
+<section class="welcome">
+
+    <p class="gold-text">OUR RESTAURANT</p>
+
+    <h2>Welcome to <span>Sweet Cloud</span></h2>
+
+    <p>
+        Sweet Cloud Restaurant is a place where delicious food
+        meets wonderful experiences. We serve freshly prepared
+        meals with love, quality ingredients, and excellent service.
+        Enjoy every moment with your family and friends.
+    </p>
+
+</section>
+
+<!-- MENU -->
+
+<section class="menu" id="menu">
+
+    <p class="gold-text">OUR SPECIALTIES</p>
+
+    <h2>Featured <span>Dishes</span></h2>
+
+    <div class="food-container">
+
+        <div class="food-card">
+
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Special pizza">
+
+            <h3>Special Pizza</h3>
+
+            <p>Freshly baked pizza with cheese and delicious toppings.</p>
+
+            <strong>₱299</strong>
+
+        </div>
+
+        <div class="food-card">
+
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="Grilled special">
+
+            <h3>Grilled Special</h3>
+
+            <p>Perfectly grilled and seasoned to perfection.</p>
+
+            <strong>₱250</strong>
+
+        </div>
+
+        <div class="food-card">
+
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" alt="Sweet dessert">
+
+            <h3>Sweet Dessert</h3>
+
+            <p>A sweet treat to complete your dining experience.</p>
+
+            <strong>₱150</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <p class="gold-text">WHAT WE OFFER</p>
+
+    <h2>Our <span>Services</span></h2>
+
+    <div class="service-container">
+
+        <div class="service-card">
+
+            <h3>Dine In</h3>
+
+            <p>Enjoy your favorite meals in our comfortable restaurant.</p>
+
+        </div>
+
+        <div class="service-card">
+
+            <h3>Take Out</h3>
+
+            <p>Take your delicious food home and enjoy every bite.</p>
+
+        </div>
+
+        <div class="service-card">
+
+            <h3>Special Events</h3>
+
+            <p>Celebrate birthdays and special occasions with us.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Sweet Cloud restaurant interior">
+
+    <div class="about-content">
+
+        <p class="gold-text">OUR STORY</p>
+
+        <h2>More Than Just <span>Food</span></h2>
+
+        <p>
+            Sweet Cloud Restaurant is a place where delicious food
+            meets wonderful experiences. We believe every meal
+            should bring happiness, comfort, and unforgettable memories.
+        </p>
+
+        <p>
+            Our goal is to serve quality food using fresh ingredients
+            while providing friendly service and a welcoming atmosphere.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- MISSION AND VISION -->
+
+<section class="menu">
+
+    <p class="gold-text">OUR GOALS</p>
+
+    <h2>Mission and <span>Vision</span></h2>
+
+    <div class="mission-container">
+
+        <div class="mission-card">
+
+            <h3>Our Mission</h3>
+
+            <p>
+                To provide delicious and affordable meals with excellent
+                service and a comfortable dining experience for everyone.
+            </p>
+
+        </div>
+
+        <div class="mission-card">
+
+            <h3>Our Vision</h3>
+
+            <p>
+                To become a trusted restaurant known for quality food,
+                customer satisfaction, and memorable dining experiences.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <p class="gold-text">MADE WITH LOVE</p>
+
+    <h2>Our Food <span>Gallery</span></h2>
+
+    <div class="gallery-container">
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Pizza">
+
+            <h3>Special Pizza</h3>
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" alt="Grilled food">
+
+            <h3>Grilled Special</h3>
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" alt="Cake">
+
+            <h3>Sweet Dessert</h3>
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Healthy food">
+
+            <h3>Healthy Bowl</h3>
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae" alt="Restaurant dish">
+
+            <h3>Chef's Special</h3>
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061" alt="Fresh food">
+
+            <h3>Fresh Selection</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <p class="gold-text">VISIT US TODAY</p>
+
+    <h2>Make Every Meal <span>Special!</span></h2>
+
+    <p>Experience delicious food and unforgettable moments.</p>
+
+    <p><strong>Restaurant:</strong> Sweet Cloud Restaurant</p>
+
+    <p><strong>Location:</strong> Philippines</p>
+
+    <p><strong>Opening Hours:</strong> Monday - Sunday, 10 AM - 9 PM</p>
+
+    <a href="#home" class="btn">BACK TO HOME</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>SWEET <span>CLOUD</span></h3>
+
+    <p>Where Every Bite Feels Like Heaven.</p>
+
+    <p>© 2026 Sweet Cloud Restaurant. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
